@@ -1,12 +1,36 @@
 import React from 'react'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import ReactDOM from 'react-dom/client'
-import { App } from './App'
+
 import reportWebVitals from './reportWebVitals'
+import { AuthorizationPage } from './pages/Authorization.page'
+import { LoginPage } from './pages/Login.page'
+import { ForgotPasswordPage } from './pages/ForgotPassword.page'
+import { HomePage } from './pages/Home.page'
+
+const router = createBrowserRouter([
+  {
+    path: '/authorization',
+    element: <AuthorizationPage />,
+  },
+  {
+    path: '/forgot-password',
+    element: <ForgotPasswordPage />,
+  },
+  {
+    path: '/login',
+    element: <LoginPage />,
+  },
+  {
+    path: '/',
+    element: <HomePage />,
+  },
+])
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 )
 
